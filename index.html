@@ -2,37 +2,43 @@
 <html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
     <title>AR Marker - Modelo GLB</title>
 
-    <!-- A-Frame -->
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
-
-    <!-- AR.js -->
-    <script src="https://cdn.jsdelivr.net/npm/ar.js@3.3.2/aframe/build/aframe-ar.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+    
+    <script src="https://unpkg.com/aframe-extras@6.1.1/dist/aframe-extras.min.js"></script>
 
     <style>
-      body {
-        margin: 0;
-        overflow: hidden;
-      }
+      body { margin: 0; overflow: hidden; }
     </style>
   </head>
 
-  <body>
-    <a-scene embedded arjs>
-      
-      <a-marker preset="hiro">
+  <body style="margin: 0; overflow: hidden;">
+    
+    <a-scene 
+        embedded 
+        arjs="sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;"
+        renderer="logarithmicDepthBuffer: true; colorManagement: true;"
+        vr-mode-ui="enabled: false">
+
+      <a-light type="ambient" intensity="1"></a-light>
+      <a-light type="directional" position="1 1 1" intensity="1.5"></a-light>
+
+      <a-marker preset="hiro" smooth="true">
+        
         <a-entity
-          gltf-model="model_noanim-v1.glb"
-          scale="1 1 1"
-          rotation="0 0 0"
-          position="0 0 0">
-        </a-entity>
+          gltf-model="./model_noanim-v1.glb"
+          scale="0.5 0.5 0.5" 
+          position="0 0 0" 
+          rotation="-90 0 0"
+          animation-mixer> </a-entity>
+
       </a-marker>
 
       <a-entity camera></a-entity>
     </a-scene>
   </body>
 </html>
-
 
