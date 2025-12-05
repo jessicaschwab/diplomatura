@@ -1,37 +1,17 @@
+
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>AR Marker - Modelo GLB</title>
-
-    <!-- A-Frame -->
-    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
-
-    <!-- AR.js -->
-    <script src="https://cdn.jsdelivr.net/npm/ar.js@3.3.2/aframe/build/aframe-ar.js"></script>
-
-    <style>
-      body { margin: 0; overflow: hidden; }
-    </style>
-  </head>
-
-  <body>
-    <a-scene
-      embedded
-      vr-mode-ui="enabled: false"
-      arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;"
-    >
-     <!-- handle hiro marker -->
-        <a-marker preset="hiro">
-            <a-circle color="blue" radius="1" rotation="-90 0 0">
-                <a-box position="1 1 0" depth="0.3" height="0.3" width="0.3" rotation="0 0 0" material="color: orange;" animation="property: rotation; to: 360 360 360; loop: true; dur: 10000; easing: linear"></a-box>
-                <a-text position="0 0 0.2" value="Hiro" color="orange" align="center" width="30">
-                </a-text>
-                <a-box position="-1 -1 0" depth="0.3" height="0.3" width="0.3" rotation="0 0 0" material="color: orange;" animation="property: rotation; to: 360 360 360; loop: true; dur: 10000; easing: linear"></a-box>
-            </a-circle>
-        </a-marker>
-
-      <a-entity camera> gltf-model="model_noanim-v1.glb"</a-entity>
-    </a-scene>
-  </body>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+</head>
+<body style="margin:0;">
+<model-viewer src="model_noanim-v1.glb"
+    ar
+    ar-modes="webxr scene-viewer quick-look"
+    camera-controls
+    environment-image="neutral"
+    style="width:100%; height:100vh;">
+</model-viewer>
+</body>
 </html>
